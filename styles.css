@@ -10,6 +10,10 @@ body {
   margin: 2em;
 }
 
+button {
+  cursor: pointer;
+}
+
 input {
   font-size: inherit;
   display: block;
