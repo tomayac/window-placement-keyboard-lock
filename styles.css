@@ -1,167 +1,28 @@
-:root {
-  --skin: brightness(0.85) sepia(0.1) saturate(1000%) hue-rotate(10deg);
-
-  --hair-color: var(--hair);
-  --body-color: var(--body);
-  --leg-color: var(--leg);
-  --skin-color: var(--skin);
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #fff;
+    background-color: #000;
+  }
 }
 
 body {
-  background-image: linear-gradient(red 0%, orange 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: system-ui, sans-serif;
+  margin: 2em;
 }
 
-.wrapper {
-  margin-left: 25px;
+input {
+  font-size: inherit;
+  display: block;
+  margin-top: 1rem;
+}
+
+input:after {
+  content: attr(data-value);
+  font-size: 1rem;
   position: relative;
-  z-index: 1;
+  right: -1rem;
 }
 
-.upper-body-wrapper {
-  top: 80px;
-  position: absolute;
-}
-
-.upper-body {
-  position: relative;
-}
-
-.head {
-  position: relative;
-}
-
-.hair {
-  position: absolute;
-  z-index: 2;
-  left: -10px;
-  top: 5px;
-}
-
-.hair img[src*="front"] {
-  filter: var(--hair-color);
-}
-
-.face {
-  position: absolute;
-  top: 30px;
-}
-
-.face > img[src*="front"] {
-
-}
-
-.eye {
-  position: absolute;
-  top: 45px;
-  left: 15px;
-  z-index: 1;
-}
-
-.left-hand {
-  position: absolute;
-  left: -20px;
-  top: 10px;
-  z-index: 2;
-}
-
-.right-hand {
-  position: absolute;
-  right: -60px;
-  top: 10px;
-  z-index: 1;
-}
-
-.left-hand img[src*="front"],
-.right-hand img[src*="front"],
-.face img[src*="front-head"] {
-  filter: var(--skin-color);
-}
-
-.body {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 0;
-}
-
-.body img[src*="front"] {
-  filter: var(--body-color);
-}
-
-.left-item {
-  position: absolute;
-  top: 0;
-  left: -30px;
-  z-index: 1;
-}
-
-.right-item {
-  position: absolute;
-  top: 0;
-  right: -75px;
-}
-
-.lower-body-wrapper {
-  position: absolute;
-  top: 130px;
-}
-
-.lower-body-wrapper img[src*="front"] {
-  filter: var(--leg-color);
-}
-
-.left-leg {
-  position: absolute;
-  left: 5px;
-  z-index: -1;
-}
-
-.right-leg {
-  position: absolute;
-  left: 25px;
-  z-index: -1;
-}
-
-img[src*="back"] {
-  position: absolute;
-  left: -2px;
-  top: -2px;
-  z-index: -1;
-}
-
-.vcard {
-  width: 300px; height: 200px;
-  background: #e00;
-  border-radius: 10px;
-  box-shadow: 1px 2px 5px rgba(0,0,0,.5), inset 0 0 20px rgba(0,0,0,.25);
-  transform: rotate(-10deg);
-}
-.vcard div:first-child {
-  height: 65px;
-  padding-top: 5px;
-  color: #fff;
-  font-family: Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: .2em;
-}
-h1, p {
-  padding: 0; margin: 0;
-}
-h1 {
-  font-size: 2em;
-}
-.fn {
-  background: #fff;
-  height: 120px;
-  font-family: "Coming Soon", "Comic Sans MS", cursive;
-  text-align: center;
-  padding-top: 5px;
-}
-.given-name {
-  font-size: 3em;
-  font-weight: bold;
+label {
+  margin-left: 1rem;
 }

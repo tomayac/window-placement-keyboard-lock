@@ -1,108 +1,39 @@
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Coming+Soon">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="origin-trial" content="">
 
-<body>
-  <script>
-    const getRandomInt = (min, max) => {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-
-    const getCharacter = () => {
-      const hair = getRandomInt(1, 6);
-      const face = getRandomInt(0, 7);
-      const itemLeft = getRandomInt(1, 71);
-      const itemRight = getRandomInt(1, 71);
-      const body = getRandomInt(0, 7);
-      const character = `
-  <div class="wrapper">
-    <div class="head">
-      <div class="hair">
-        <img src="assets/items/head/front-${hair}.png">
-        <img src="assets/items/head/back-${hair}.png">
-      </div>
-
-      <div class="face">
-        <img src="assets/skins/front/front-head-${face}.png">
-        <img src="assets/skins/background/back-head-${face}.png">
-      </div>
-
-      <div class="eye">
-        <img src="assets/skins/front/front-eye-0.png">
-        <img src="assets/skins/background/back-eye-0.png">
-      </div>
-    </div>
-
-    <div class="upper-body-wrapper">
-      <div class="upper-body">
-        <div class="left-hand">
-          <img src="assets/skins/front/front-hand-0.png">
-          <img src="assets/skins/background/back-hand-0.png">
-        </div>
-
-        <div class="left-item">
-          <img src="assets/items/hands/decoration-${itemLeft}.png">
-        </div>
-
-        <div class="body">
-          <img src="assets/skins/front/front-body-${body}.png">
-          <img src="assets/skins/background/back-body-${body}.png">
-        </div>
-
-        <div class="right-hand">
-          <img src="assets/skins/front/front-hand-0.png">
-          <img src="assets/skins/background/back-hand-0.png">
-        </div>
-
-        <div class="right-item">
-          <img src="assets/items/hands/decoration-${itemRight}.png">
-        </div>
-      </div>
-    </div>
-    <div class="lower-body-wrapper">
-      <div class="lower-body">
-        <div class="left-leg">
-          <img src="assets/skins/front/front-leg-0.png">
-          <img src="assets/skins/background/back-leg-0.png">
-        </div>
-
-        <div class="right-leg">
-          <img src="assets/skins/front/front-leg-0.png">
-          <img src="assets/skins/background/back-leg-0.png">
-        </div>
-      </div>
-    </div>
-  </div>`;
-      document.body.innerHTML += character;
-    }
-
-    const getNameTag = () => {
-      const consonants = 'bcdfghjklmnpqrstvwxyz'.split('');
-      const vowels = 'aeiou'.split('');
-      const length = getRandomInt(4, 9);
-      let name = '';
-      for (let i = 0; i < length; i++) {
-        name += i % 2 === 0? vowels[getRandomInt(0, vowels.length - 1)] : consonants[getRandomInt(0, consonants.length - 1)];
-      }
-      const nameTag =
-  `<article class="vcard">
-    <div>
-      <h1>Hello</h1>
-      <p>my name is</p>
-    </div>
-    <div class="fn">
-      <p class="given-name">${name[0].toUpperCase()}${name.substr(1)}</p>
-    </div>
-  </article>`
-      document.body.innerHTML += nameTag;
-    }
-
-    document.documentElement.style.setProperty('--hair', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
-    document.documentElement.style.setProperty('--body', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
-    document.documentElement.style.setProperty('--leg', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
-
-    getCharacter();
-    getNameTag();
-  </script>
-</body>
+    <title>Multi-Screen Window Placement API Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="prefetch" href="iframe.html" as="document" />
+    <link rel="prefetch" href="iframe.css" as="stylesheet" />
+    <link rel="icon" href="assets/app-icon-512.png" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Multi-Screen Window Placement API Demo</h1>
+    <ul>
+      <li>Click the Chrome Dev Summit Adventure logo to start the demo.</li>
+      <li>Focus any of the windows and click again to toggle fullscreen.</li>
+      <li>Plug or unplug an additional screen and see how the demo adapts.</li>
+      <li>Play with the sliders below (closing one popup closes all other popups, too).</li>
+    </ul>
+    <button type="button">
+      <img
+        src="assets/cds-adventure-logo.svg"
+        alt="Chrome Dev Summit logo."
+        width="316"
+        height="316"
+      />
+    </button>
+    <label
+      ><input type="range" min="1" max="5" id="rows" value="2" /> Rows</label
+    >
+    <label
+      ><input type="range" min="1" max="5" id="cols" value="2" /> Columns</label
+    >
+  </body>
+</html>
