@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Coming+Soon">
+
 <body>
   <script>
     const getRandomInt = (min, max) => {
@@ -16,7 +18,7 @@
       const character = `
   <div class="wrapper">
     <div class="head">
-      <div class="head-decoration">
+      <div class="hair">
         <img src="assets/items/head/front-${hair}.png">
         <img src="assets/items/head/back-${hair}.png">
       </div>
@@ -74,6 +76,33 @@
   </div>`;
       document.body.innerHTML += character;
     }
+
+    const getNameTag = () => {
+      const consonants = 'bcdfghjklmnpqrstvwxyz'.split('');
+      const vowels = 'aeiou'.split('');
+      const length = getRandomInt(4, 9);
+      let name = '';
+      for (let i = 0; i < length; i++) {
+        name += i % 2 === 0? vowels[getRandomInt(0, vowels.length - 1)] : consonants[getRandomInt(0, consonants.length - 1)];
+      }
+      const nameTag =
+  `<article class="vcard">
+    <div>
+      <h1>Hello</h1>
+      <p>my name is</p>
+    </div>
+    <div class="fn">
+      <p class="given-name">${name[0].toUpperCase()}${name.substr(1)}</p>
+    </div>
+  </article>`
+      document.body.innerHTML += nameTag;
+    }
+
+    document.documentElement.style.setProperty('--hair', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
+    document.documentElement.style.setProperty('--body', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
+    document.documentElement.style.setProperty('--leg', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
+
     getCharacter();
+    getNameTag();
   </script>
 </body>

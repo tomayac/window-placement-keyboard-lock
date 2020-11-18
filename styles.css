@@ -1,22 +1,23 @@
 :root {
-  --green: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(120deg);
   --skin: brightness(0.85) sepia(0.1) saturate(1000%) hue-rotate(10deg);
-  --red: brightness(0.5) sepia(1) saturate(10000%);
-  --blue: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(245deg);
 
-  --head-decoration-color: var(--blue);
-  --body-color: var(--red);
-  --leg-color: var(--green);
+  --hair-color: var(--hair);
+  --body-color: var(--body);
+  --leg-color: var(--leg);
   --skin-color: var(--skin);
 }
 
 body {
   background-image: linear-gradient(red 0%, orange 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
   margin-left: 25px;
   position: relative;
+  z-index: 1;
 }
 
 .upper-body-wrapper {
@@ -32,15 +33,15 @@ body {
   position: relative;
 }
 
-.head-decoration {
+.hair {
   position: absolute;
   z-index: 2;
   left: -10px;
   top: 5px;
 }
 
-.head-decoration img[src*="front"] {
-  filter: var(--head-decoration-color);
+.hair img[src*="front"] {
+  filter: var(--hair-color);
 }
 
 .face {
@@ -131,3 +132,36 @@ img[src*="back"] {
   z-index: -1;
 }
 
+.vcard {
+  width: 300px; height: 200px;
+  background: #e00;
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px rgba(0,0,0,.5), inset 0 0 20px rgba(0,0,0,.25);
+  transform: rotate(-10deg);
+}
+.vcard div:first-child {
+  height: 65px;
+  padding-top: 5px;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .2em;
+}
+h1, p {
+  padding: 0; margin: 0;
+}
+h1 {
+  font-size: 2em;
+}
+.fn {
+  background: #fff;
+  height: 120px;
+  font-family: "Coming Soon", "Comic Sans MS", cursive;
+  text-align: center;
+  padding-top: 5px;
+}
+.given-name {
+  font-size: 3em;
+  font-weight: bold;
+}
