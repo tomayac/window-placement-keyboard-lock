@@ -1,108 +1,154 @@
-<link rel="stylesheet" href="iframe.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Coming+Soon">
-
-<body>
-  <script>
-    const getRandomInt = (min, max) => {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-
-    const getCharacter = () => {
-      const hair = getRandomInt(1, 6);
-      const face = getRandomInt(0, 7);
-      const itemLeft = getRandomInt(1, 71);
-      const itemRight = getRandomInt(1, 71);
-      const body = getRandomInt(0, 7);
-      const character = `
-  <div class="wrapper">
-    <div class="head">
-      <div class="hair">
-        <img src="assets/items/head/front-${hair}.png">
-        <img src="assets/items/head/back-${hair}.png">
-      </div>
-
-      <div class="face">
-        <img src="assets/skins/front/front-head-${face}.png">
-        <img src="assets/skins/background/back-head-${face}.png">
-      </div>
-
-      <div class="eye">
-        <img src="assets/skins/front/front-eye-0.png">
-        <img src="assets/skins/background/back-eye-0.png">
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="origin-trial" content="Ah7DdS1YCDjHhPRI9maosNZGENz5cOSrnZqJFZwumrwXwXweJujMM9+17Vv/7A6yyFrsJZ9dnMTW3W2JtCeqFwoAAABaeyJvcmlnaW4iOiJodHRwczovL3RvbWF5YWMuZ2l0aHViLmlvOjQ0MyIsImZlYXR1cmUiOiJXaW5kb3dQbGFjZW1lbnQiLCJleHBpcnkiOjE2MDkzMzMzMjF9">
+    <link rel="stylesheet" href="iframe.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Coming+Soon">
+    <link rel="icon" href="assets/app-icon-512.png" />
+  </head>
+  <body>
+    <div class="info" hidden>The <a href="https://web.dev/keyboard-lock/">Keyboard Lock</a> has captured this key combination!</div>
+    <div class="hint" hidden>
+      <p>You can always press <kbd>ESC</kbd> to exit full screen.</p>
+      <p>Try pressing <kbd>CMD/CTRL</kbd>+<kbd>T</kbd> (hotkey for new tab) or <kbd>CMD/CTRL</kbd>+<kbd>N</kbd> (hotkey for new window).</p>
     </div>
+    <script>
+      const getRandomInt = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      };
 
-    <div class="upper-body-wrapper">
-      <div class="upper-body">
-        <div class="left-hand">
-          <img src="assets/skins/front/front-hand-0.png">
-          <img src="assets/skins/background/back-hand-0.png">
+      const getCharacter = () => {
+        const hair = getRandomInt(1, 6);
+        const face = getRandomInt(0, 7);
+        const itemLeft = getRandomInt(1, 71);
+        const itemRight = getRandomInt(1, 71);
+        const body = getRandomInt(0, 7);
+        const character = `
+    <div class="wrapper">
+      <div class="head">
+        <div class="hair">
+          <img src="assets/items/head/front-${hair}.png">
+          <img src="assets/items/head/back-${hair}.png">
         </div>
 
-        <div class="left-item">
-          <img src="assets/items/hands/decoration-${itemLeft}.png">
+        <div class="face">
+          <img src="assets/skins/front/front-head-${face}.png">
+          <img src="assets/skins/background/back-head-${face}.png">
         </div>
 
-        <div class="body">
-          <img src="assets/skins/front/front-body-${body}.png">
-          <img src="assets/skins/background/back-body-${body}.png">
-        </div>
-
-        <div class="right-hand">
-          <img src="assets/skins/front/front-hand-0.png">
-          <img src="assets/skins/background/back-hand-0.png">
-        </div>
-
-        <div class="right-item">
-          <img src="assets/items/hands/decoration-${itemRight}.png">
-        </div>
-      </div>
-    </div>
-    <div class="lower-body-wrapper">
-      <div class="lower-body">
-        <div class="left-leg">
-          <img src="assets/skins/front/front-leg-0.png">
-          <img src="assets/skins/background/back-leg-0.png">
-        </div>
-
-        <div class="right-leg">
-          <img src="assets/skins/front/front-leg-0.png">
-          <img src="assets/skins/background/back-leg-0.png">
+        <div class="eye">
+          <img src="assets/skins/front/front-eye-0.png">
+          <img src="assets/skins/background/back-eye-0.png">
         </div>
       </div>
-    </div>
-  </div>`;
-      document.body.innerHTML += character;
-    }
 
-    const getNameTag = () => {
-      const consonants = 'bcdfghjklmnpqrstvwxyz'.split('');
-      const vowels = 'aeiou'.split('');
-      const length = getRandomInt(4, 7);
-      let name = '';
-      for (let i = 0; i < length; i++) {
-        name += i % 2 === 0? vowels[getRandomInt(0, vowels.length - 1)] : consonants[getRandomInt(0, consonants.length - 1)];
+      <div class="upper-body-wrapper">
+        <div class="upper-body">
+          <div class="left-hand">
+            <img src="assets/skins/front/front-hand-0.png">
+            <img src="assets/skins/background/back-hand-0.png">
+          </div>
+
+          <div class="left-item">
+            <img src="assets/items/hands/decoration-${itemLeft}.png">
+          </div>
+
+          <div class="body">
+            <img src="assets/skins/front/front-body-${body}.png">
+            <img src="assets/skins/background/back-body-${body}.png">
+          </div>
+
+          <div class="right-hand">
+            <img src="assets/skins/front/front-hand-0.png">
+            <img src="assets/skins/background/back-hand-0.png">
+          </div>
+
+          <div class="right-item">
+            <img src="assets/items/hands/decoration-${itemRight}.png">
+          </div>
+        </div>
+      </div>
+      <div class="lower-body-wrapper">
+        <div class="lower-body">
+          <div class="left-leg">
+            <img src="assets/skins/front/front-leg-0.png">
+            <img src="assets/skins/background/back-leg-0.png">
+          </div>
+
+          <div class="right-leg">
+            <img src="assets/skins/front/front-leg-0.png">
+            <img src="assets/skins/background/back-leg-0.png">
+          </div>
+        </div>
+      </div>
+    </div>`;
+        document.body.innerHTML += character;
       }
-      const nameTag =
-  `<article class="vcard">
-    <div>
-      <h1>Hello</h1>
-      <p>my name is</p>
-    </div>
-    <div class="fn">
-      <p class="given-name">${name[0].toUpperCase()}${name.substr(1)}</p>
-    </div>
-  </article>`
-      document.body.innerHTML += nameTag;
-    }
 
-    document.documentElement.style.setProperty('--hair', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
-    document.documentElement.style.setProperty('--body', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
-    document.documentElement.style.setProperty('--leg', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
+      const getNameTag = () => {
+        const consonants = 'bcdfghjklmnpqrstvwxyz'.split('');
+        const vowels = 'aeiou'.split('');
+        const length = getRandomInt(4, 7);
+        let name = '';
+        for (let i = 0; i < length; i++) {
+          name += i % 2 === 0? vowels[getRandomInt(0, vowels.length - 1)] : consonants[getRandomInt(0, consonants.length - 1)];
+        }
+        name = `${name[0].toUpperCase()}${name.substr(1)}`;
+        document.title = `Chrome Dev Summit Adventure: ${name}`;
+        const nameTag =
+    `<article class="vcard">
+      <div>
+        <h1>Hello</h1>
+        <p>my name is</p>
+      </div>
+      <div class="fn">
+        <p class="given-name">${name}</p>
+        <p class="byline">(Click my window to make me full screen!)</p>
+      </div>
+    </article>`
+        document.body.innerHTML += nameTag;
+      }
 
-    getCharacter();
-    getNameTag();
-  </script>
-</body>
+      document.documentElement.style.setProperty('--hair', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
+      document.documentElement.style.setProperty('--body', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
+      document.documentElement.style.setProperty('--leg', `brightness(0.5) sepia(1) saturate(10000%) hue-rotate(${getRandomInt(0, 360)}deg)`);
+
+      getCharacter();
+      getNameTag();
+
+      let lock = false;
+      const LOCKED_KEYS = ["MetaLeft", "MetaRight", "Tab", "KeyN", "KeyT"];
+      const hint = document.querySelector(".hint");
+      document.addEventListener('fullscreenchange', async () => {
+        if (document.fullscreenElement) {
+          await navigator.keyboard.lock(LOCKED_KEYS);
+          lock = true;
+          hint.style.display = 'block';
+          return;
+        }
+        await navigator.keyboard.unlock();
+        lock = false;
+        hint.style.display = 'none';
+      });
+
+      const info = document.querySelector(".info");
+      document.addEventListener('keydown', (e) => {
+        if (lock && (e.code === 'KeyN' || e.code === 'KeyT') && (event.ctrlKey || event.metaKey)) {
+          hint.style.display = 'none';
+          info.style.display = 'block';
+          setTimeout(() => {
+            info.style.display = 'none';
+            hint.style.display = 'block';
+          }, 3000);
+        }
+});
+
+
+    </script>
+  </body>
+</html>
