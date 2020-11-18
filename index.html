@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="styles.css">
+<body>
+  <script>
+    const getRandomInt = (min, max) => {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
+    const getCharacter = () => {
+      const hair = getRandomInt(1, 6);
+      const face = getRandomInt(0, 7);
+      const itemLeft = getRandomInt(1, 71);
+      const itemRight = getRandomInt(1, 71);
+      const body = getRandomInt(0, 7);
+      const character = `
+  <div class="wrapper">
+    <div class="head">
+      <div class="head-decoration">
+        <img src="assets/items/head/front-${hair}.png">
+        <img src="assets/items/head/back-${hair}.png">
+      </div>
+
+      <div class="face">
+        <img src="assets/skins/front/front-head-${face}.png">
+        <img src="assets/skins/background/back-head-${face}.png">
+      </div>
+
+      <div class="eye">
+        <img src="assets/skins/front/front-eye-0.png">
+        <img src="assets/skins/background/back-eye-0.png">
+      </div>
+    </div>
+
+    <div class="upper-body-wrapper">
+      <div class="upper-body">
+        <div class="left-hand">
+          <img src="assets/skins/front/front-hand-0.png">
+          <img src="assets/skins/background/back-hand-0.png">
+        </div>
+
+        <div class="left-item">
+          <img src="assets/items/hands/decoration-${itemLeft}.png">
+        </div>
+
+        <div class="body">
+          <img src="assets/skins/front/front-body-${body}.png">
+          <img src="assets/skins/background/back-body-${body}.png">
+        </div>
+
+        <div class="right-hand">
+          <img src="assets/skins/front/front-hand-0.png">
+          <img src="assets/skins/background/back-hand-0.png">
+        </div>
+
+        <div class="right-item">
+          <img src="assets/items/hands/decoration-${itemRight}.png">
+        </div>
+      </div>
+    </div>
+    <div class="lower-body-wrapper">
+      <div class="lower-body">
+        <div class="left-leg">
+          <img src="assets/skins/front/front-leg-0.png">
+          <img src="assets/skins/background/back-leg-0.png">
+        </div>
+
+        <div class="right-leg">
+          <img src="assets/skins/front/front-leg-0.png">
+          <img src="assets/skins/background/back-leg-0.png">
+        </div>
+      </div>
+    </div>
+  </div>`;
+      document.body.innerHTML += character;
+    }
+    getCharacter();
+  </script>
+</body>

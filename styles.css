@@ -1,0 +1,133 @@
+:root {
+  --green: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(120deg);
+  --skin: brightness(0.85) sepia(0.1) saturate(1000%) hue-rotate(10deg);
+  --red: brightness(0.5) sepia(1) saturate(10000%);
+  --blue: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(245deg);
+
+  --head-decoration-color: var(--blue);
+  --body-color: var(--red);
+  --leg-color: var(--green);
+  --skin-color: var(--skin);
+}
+
+body {
+  background-image: linear-gradient(red 0%, orange 100%);
+}
+
+.wrapper {
+  margin-left: 25px;
+  position: relative;
+}
+
+.upper-body-wrapper {
+  top: 80px;
+  position: absolute;
+}
+
+.upper-body {
+  position: relative;
+}
+
+.head {
+  position: relative;
+}
+
+.head-decoration {
+  position: absolute;
+  z-index: 2;
+  left: -10px;
+  top: 5px;
+}
+
+.head-decoration img[src*="front"] {
+  filter: var(--head-decoration-color);
+}
+
+.face {
+  position: absolute;
+  top: 30px;
+}
+
+.face > img[src*="front"] {
+
+}
+
+.eye {
+  position: absolute;
+  top: 45px;
+  left: 15px;
+  z-index: 1;
+}
+
+.left-hand {
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  z-index: 2;
+}
+
+.right-hand {
+  position: absolute;
+  right: -60px;
+  top: 10px;
+  z-index: 1;
+}
+
+.left-hand img[src*="front"],
+.right-hand img[src*="front"],
+.face img[src*="front-head"] {
+  filter: var(--skin-color);
+}
+
+.body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.body img[src*="front"] {
+  filter: var(--body-color);
+}
+
+.left-item {
+  position: absolute;
+  top: 0;
+  left: -30px;
+  z-index: 1;
+}
+
+.right-item {
+  position: absolute;
+  top: 0;
+  right: -75px;
+}
+
+.lower-body-wrapper {
+  position: absolute;
+  top: 130px;
+}
+
+.lower-body-wrapper img[src*="front"] {
+  filter: var(--leg-color);
+}
+
+.left-leg {
+  position: absolute;
+  left: 5px;
+  z-index: -1;
+}
+
+.right-leg {
+  position: absolute;
+  left: 25px;
+  z-index: -1;
+}
+
+img[src*="back"] {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  z-index: -1;
+}
+

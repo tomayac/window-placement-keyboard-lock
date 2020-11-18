@@ -1,0 +1,22 @@
+{
+  "name": "window-placement-keyboard-lock",
+  "version": "1.0.0",
+  "description": "Demo of the Mult Screen Window Placement API and the Keyboard Lock API",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomayac/window-placement-keyboard-lock.git"
+  },
+  "author": "Thomas Steiner (tomac@google.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/tomayac/window-placement-keyboard-lock/issues"
+  },
+  "homepage": "https://github.com/tomayac/window-placement-keyboard-lock#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
