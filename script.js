@@ -100,11 +100,17 @@ const elmerify = async () => {
     let height = Math.floor(
       (screen.availHeight - ROWS * WINDOW_CHROME_Y) / ROWS
     );
+    loop:
     for (let i = 0; i < COLS; i++) {
       for (let j = 0; j < ROWS; j++) {
         let screenX = i * width + screen.availLeft + i * WINDOW_CHROME_X;
         let screenY = j * height + screen.availTop + j * WINDOW_CHROME_Y;
         const popup = createPopup(screenX, screenY, width, height);
+        if (!popup) {
+          popups.forEach((popup) => popup.close());
+          alert('It looks like you are blocking popup windows. Please allow them as outlined at https://goo.gle/allow-popups.');
+          break loop;
+        }
         popup.screenId = screen.id;
         popup.addEventListener("beforeunload", onPopupClose);
         popup.addEventListener("click", onPopupClick);
