@@ -47,6 +47,7 @@ const getScreensInfo = async () => {
 const onPopupClose = e => {
   e.preventDefault();
   popups.forEach(popup => {
+    console.log(`Closing popup ${popup.name}`);
     popup.removeEventListener("beforeunload", onPopupClose);
     popup.close();
   });
