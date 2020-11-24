@@ -1,7 +1,7 @@
 {
   "name": "window-placement-keyboard-lock",
   "version": "1.0.0",
-  "description": "Demo of the Mult Screen Window Placement API and the Keyboard Lock API",
+  "description": "Demo of the Multi Screen Window Placement API and the Keyboard Lock API",
   "main": "index.js",
   "scripts": {
     "start": "npx http-server"
