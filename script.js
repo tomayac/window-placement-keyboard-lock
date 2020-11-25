@@ -45,6 +45,7 @@ const getScreensInfo = async () => {
 };
 
 const onPopupClose = e => {
+  e.returnValue = '';
   e.preventDefault();
   popups.forEach(popup => {
     console.log(`Closing popup ${popup.name}`);
@@ -137,7 +138,9 @@ const init = async () => {
     await elmerify();
   });
 
-  window.addEventListener("beforeunload", () => {
+  window.addEventListener("beforeunload", (e) => {
+    e.returnValue = '';
+    e.preventDefault();
     closeAllPopups();
   });
 };
